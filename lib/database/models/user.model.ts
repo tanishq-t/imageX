@@ -11,7 +11,7 @@ interface Iuser extends Document {
     creditBalance: number;
 }
 
-const UserSchema = new Schema({
+const UserSchema = new Schema<Iuser>({
   clerkId: {
     type: String,
     required: true,
