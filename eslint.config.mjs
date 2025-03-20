@@ -16,7 +16,8 @@ const eslintConfig = [
     rules: {
       "no-var": "off",          // Disable 'var' warning
       "prefer-const": "off",    // Disable 'prefer-const' rule
-      "@typescript-eslint/no-var-requires": "off" // Disable TypeScript specific rule (if needed)
+      "@typescript-eslint/no-var-requires": "off", // Disable TypeScript specific rule (if needed)
+      "@typescript-eslint/no-explicit-any": "off",
     },
   },
 ];
