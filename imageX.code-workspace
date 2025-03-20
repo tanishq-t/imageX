@@ -1,0 +1,15 @@
+{
+	"folders": [
+		{
+			"name": "imageX",
+			"path": "."
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"__tree": "cpp",
+			"map": "cpp",
+			"iostream": "cpp"
+		}
+	}
+}
