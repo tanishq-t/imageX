@@ -64,6 +64,10 @@ const TransformationForm = ({action,data=null,userId,type,creditBalance}:Transfo
 
     }
 
+    const onInputChangeHandler = (fieldName: string,value:string,type:string,onChageField: (value: string)=>void)=>{
+        
+    }
+
 
   return (
     <Form {...form}>
@@ -111,7 +115,15 @@ const TransformationForm = ({action,data=null,userId,type,creditBalance}:Transfo
                     formLabel={type==='remove' ? 'Object to remove' : 'Object to recolor'}
                     className='w-full'
                     render={(({field})=>(
-                        <Input/>
+                        <Input
+                            value={field.value}
+                            onChange={(e)=>onInputChangeHandler(
+                                'prompt',
+                                e.target.value,
+                                type,
+                                field.onChange
+                            )}
+                        />
                     ))}
                 />
             </div>
