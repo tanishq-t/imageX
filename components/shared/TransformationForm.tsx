@@ -72,12 +72,14 @@ const TransformationForm = ({ action, data = null, userId, type, creditBalance, 
     setIsSubmitting(true);
 
     if(data || image) {
+      console.log(transformationConfig)
       const transformationUrl = getCldImageUrl({
         width: image?.width,
         height: image?.height,
         src: image?.publicId,
         ...transformationConfig
       })
+      console.log(transformationUrl)
 
       const imageData = {
         title: values.title,
@@ -92,6 +94,8 @@ const TransformationForm = ({ action, data = null, userId, type, creditBalance, 
         prompt: values.prompt,
         color: values.color,
       }
+
+      console.log(imageData.secureURL)
 
       if(action === 'Add') {
         try {

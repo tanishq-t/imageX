@@ -15,9 +15,13 @@ type MediaUploaderProps = {
   type: string;
 }
 
-
-
-const MediaUploader = ({onValueChange,setImage,image,publicId,type}: MediaUploaderProps) => {
+const MediaUploader = ({
+  onValueChange,
+  setImage,
+  image,
+  publicId,
+  type
+}: MediaUploaderProps) => {
   const { toast } = useToast()
 
   const onUploadSuccessHandler = (result: any) => {
@@ -42,7 +46,7 @@ const MediaUploader = ({onValueChange,setImage,image,publicId,type}: MediaUpload
   const onUploadErrorHandler = () => {
     toast({
       title: 'Something went wrong while uploading',
-      description: 'Please try again later!',
+      description: 'Please try again',
       duration: 5000,
       className: 'error-toast' 
     })
