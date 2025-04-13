@@ -1,3 +1,5 @@
+/* eslint-disable prefer-const */
+/* eslint-disable no-prototype-builtins */
 import { type ClassValue, clsx } from "clsx";
 import qs from "qs";
 import { twMerge } from "tailwind-merge";
@@ -83,26 +85,19 @@ export function removeKeysFromQuery({
 }
 
 // DEBOUNCE
-export const debounce = (func: (...args: unknown[]) => void, delay: number) => {
+export const debounce = (func: (...args: any[]) => void, delay: number) => {
   let timeoutId: NodeJS.Timeout | null;
-  return (...args: unknown[]) => {
+  return (...args: any[]) => {
     if (timeoutId) clearTimeout(timeoutId);
-    timeoutId = setTimeout(() => func(...args), delay);
+    timeoutId = setTimeout(() => func.apply(null, args), delay);
   };
 };
 
-
 // GE IMAGE SIZE
 export type AspectRatioKey = keyof typeof aspectRatioOptions;
-interface ImageData {
-  aspectRatio?: string;
-  width?: number;
-  height?: number;
-}
-
 export const getImageSize = (
   type: string,
-  image: ImageData,
+  image: any,
   dimension: "width" | "height"
 ): number => {
   if (type === "fill") {
@@ -113,7 +108,6 @@ export const getImageSize = (
   }
   return image?.[dimension] || 1000;
 };
-
 
 // DOWNLOAD IMAGE
 export const download = (url: string, filename: string) => {
